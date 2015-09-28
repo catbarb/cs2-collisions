@@ -9,6 +9,8 @@ class Asteroid {
     v = v_;
   }
   
+  
+  
   // Create a new Asteroid with a random position & velocity.  The
   // position is uniformly distributed over the window area.  The
   // velocity is in a random direction, always with magnitude 100
@@ -30,11 +32,28 @@ class Asteroid {
     center.x = center.x % width;
     center.y = center.y % height;
   }
+  
+  int childShape(){
+    return size-1;
+  }
+  
+  boolean canSplit(){
+    if (size > 4){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  
+  float calculatedRadius(){
+    return 
+  }
+ 
 
   // Draw a polygon with the current style.  `polygon(x, y, r, n)`
   // draws a n-sided polygon with its circumcenter at (x,y), with a
   // distance r from the center to each vertex.
-  private void polygon(float x, float y, float radius, int npoints) {
+  private void polygon (float x, float y, float radius, int npoints) {
   float angle = TWO_PI / npoints;
   beginShape();
   for (float a = 0; a < TWO_PI; a += angle) {
