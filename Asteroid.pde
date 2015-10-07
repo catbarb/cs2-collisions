@@ -79,15 +79,28 @@ void render(){
   polygon(center.x,center.y,radius(),size);
 }
 
-Pair<PVector, PVector>
-Pair childVelocities(){
+
+Pair<PVector, PVector> childVelocities(){
   PVector childVelocity1 = v.copy();
   PVector childVelocity2 = v.copy();
   
-  childVelocity1.mult(1.1).rotate(30);
-  childVelocity2.mult(1.1).rotate(-30);
+  childVelocity1.mult(1.1);
+  childVelocity1.rotate(radians(30));
+  childVelocity2.mult(1.1);
+  childVelocity2.rotate(radians(-30));
   
-  Pair<new PVector> cV1
+  Pair<PVector, PVector> childVelocities = new Pair (childVelocity1 , childVelocity2); 
+  return childVelocities;
 }
+
+Pair children(){
+  Asteroid child1 = new Asteroid(childShape(), this.center.copy(), childVelocities().a);
+  Asteroid child2 = new Asteroid(childShape(), this.center.copy(), childVelocities().b);
+ 
+  Pair<Asteroid, Asteroid> children = new Pair (child1, child2); 
+  return children;
+}
+
+
 
 }
