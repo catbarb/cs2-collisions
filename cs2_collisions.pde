@@ -43,6 +43,7 @@ int initialBreakers = 30;
 
 ArrayList<Asteroid> asteroids = new ArrayList();
 ArrayList<Breaker> breakers = new ArrayList();
+Hero player;
 
 // Store time (ms) of last update.
 float t, last_t, dt;
@@ -63,13 +64,14 @@ void setup() {
     breakers.add(new Breaker());
     i++;
   }
-  
+  player = new Hero();
   size(500,500);
 }
 
 void draw() {
   clear();
 
+  player.render();
   // Render all the Asteroids
   for(Asteroid a : asteroids) {
     a.render();
@@ -102,3 +104,23 @@ boolean colliding(Asteroid a, Breaker b){
      return false;
    }
  }
+ 
+ void keyPressed() {
+  if (keyCode == LEFT) {
+    player.setXRotation(-.1);
+  }
+  if (keyCode == RIGHT) {
+    player.setXRotation(.1);
+  }
+  if (keyCode == UP) {
+    player.setYSpeed(-3);
+  }
+  if (keyCode == DOWN) {
+    player.setYSpeed(3);
+  }
+  
+  
+  
+player.update();
+}
+ 

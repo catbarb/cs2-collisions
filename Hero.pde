@@ -1,20 +1,40 @@
 class Hero{
-} 
+   PVector center;  // position of center, in screen coordinates
+   PVector v;  // velocity, per second, in screen coordinates
+   float red;
+   float blue;
+   float green;
+   float rotation;
+   float YSpeed;
 
 Hero(){
-}
-
-void polygon (float x, float y) {
-  float angle = TWO_PI /3;
-  beginShape();
-  for (float a = 0; a < TWO_PI; a += angle) {
-    float sx = x + cos(a) * 15;
-    float sy = y + sin(a) * 15;
-    vertex(sx, sy);
+   center = new PVector(width/2,height/2);
+   red = random(0, 255);
+   blue = random(0, 255);
+   green = random(0, 255);
+   rotation = 0;
+   YSpeed = 0;
   }
-  endShape(CLOSE);
-}
 
 void render(){
-  polygon(width/2,height/2);
+  pushMatrix();
+  translate(center.x,center.y);
+  rotate(rotation);
+  stroke(150);
+  fill(red,blue,green);
+  triangle(0,-10,5,5,-5,5);
+  popMatrix();
+}
+
+void update(){
+  center.y = center.y+YSpeed; 
+}
+
+void setXRotation(float newRotation){
+  rotation = rotation+newRotation;
+}
+void setYSpeed(float newSpeedy){
+  YSpeed = newSpeedy;
+}
+
 }
