@@ -72,6 +72,7 @@ void draw() {
   clear();
 
   player.render();
+  player.update();
   // Render all the Asteroids
   for(Asteroid a : asteroids) {
     a.render();
@@ -107,10 +108,10 @@ boolean colliding(Asteroid a, Breaker b){
  
  void keyPressed() {
   if (keyCode == LEFT) {
-    player.setXRotation(-.1);
+    player.setXRotation(-.2);
   }
   if (keyCode == RIGHT) {
-    player.setXRotation(.1);
+    player.setXRotation(.2);
   }
   if (keyCode == UP) {
     player.setYSpeed(-3);
@@ -118,9 +119,13 @@ boolean colliding(Asteroid a, Breaker b){
   if (keyCode == DOWN) {
     player.setYSpeed(3);
   }
-  
-  
-  
-player.update();
+ }
+   
+void keyReleased() {
+  if (keyCode == UP) {
+    player.setYSpeed(0);
+  }
+  if (keyCode == DOWN) {
+    player.setYSpeed(0);
+  }
 }
- 

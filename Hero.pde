@@ -27,14 +27,16 @@ void render(){
 }
 
 void update(){
+  center.copy().rotate(rotation);
+  center.x = center.x+YSpeed;
   center.y = center.y+YSpeed; 
 }
 
 void setXRotation(float newRotation){
   rotation = rotation+newRotation;
 }
-void setYSpeed(float newSpeedy){
-  YSpeed = newSpeedy;
+void setYSpeed(float newYSpeed){
+  YSpeed = newYSpeed;
 }
 
 }
