@@ -6,6 +6,7 @@ class Hero{
    float green;
    float rotation;
    float YSpeed;
+   float XSpeed;
 
 Hero(){
    center = new PVector(width/2,height/2);
@@ -28,15 +29,21 @@ void render(){
 
 void update(){
   center.copy().rotate(rotation);
-  center.x = center.x+YSpeed;
+  center.x = center.x+XSpeed;
   center.y = center.y+YSpeed; 
 }
 
-void setXRotation(float newRotation){
+void setRotation(float newRotation){
   rotation = rotation+newRotation;
 }
-void setYSpeed(float newYSpeed){
+
+void setSpeed(float newYSpeed, float newXSpeed){
   YSpeed = newYSpeed;
+  XSpeed = newXSpeed;
+
 }
 
+float getRotation(){
+  return rotation;
+}
 }
