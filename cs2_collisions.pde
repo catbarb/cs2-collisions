@@ -114,10 +114,10 @@ boolean colliding(Asteroid a, Breaker b){
     player.setRotation(.2);
   }
   if (keyCode == UP) {
-    player.setSpeed(cos(player.getRotation()),sin(player.getRotation()));
+    player.setSpeed(sin(player.getRotation()),cos(player.getRotation()));
   }
   if (keyCode == DOWN) {
-    player.setSpeed(cos(player.getRotation()),sin(player.getRotation()));
+    player.setSpeed(-sin(player.getRotation()),-cos(player.getRotation()));
   }
  }
    

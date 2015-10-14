@@ -1,15 +1,17 @@
+//This creates a triangle that can move around the screen
+
 class Hero{
-   PVector center;  // position of center, in screen coordinates
-   PVector v;  // velocity, per second, in screen coordinates
-   float red;
-   float blue;
-   float green;
-   float rotation;
-   float YSpeed;
-   float XSpeed;
+   PVector center;  // the position of center, in screen coordinates
+   PVector v;  // the velocity, per second, in screen coordinates
+   float red; // the red color
+   float blue; // the blue color
+   float green; // the green color
+   float rotation; // the roation of the triangle that is the player in radians
+   float YSpeed; // the number of screen coordinates that the triange moves along the y axis
+   float XSpeed; //the number of screen coordinates that the triange moves along the x axis
 
 Hero(){
-   center = new PVector(width/2,height/2);
+   center = new PVector(width/2,height/2); //starts the player in the center of the screen
    red = random(0, 255);
    blue = random(0, 255);
    green = random(0, 255);
@@ -44,6 +46,6 @@ void setSpeed(float newYSpeed, float newXSpeed){
 }
 
 float getRotation(){
-  return rotation;
+  return rotation-radians(90);
 }
 }
