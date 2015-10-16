@@ -12,13 +12,14 @@ class Hero{
 
 Hero(){
    center = new PVector(width/2,height/2); //starts the player in the center of the screen
-   red = random(0, 255);
-   blue = random(0, 255);
-   green = random(0, 255);
+   red = random(0, 255); //sets a random red color value
+   blue = random(0, 255); //sets a random blue color value
+   green = random(0, 255); //sets a random green color value
    rotation = 0;
    YSpeed = 0;
   }
 
+//Draws the ship/triangle.
 void render(){
   pushMatrix();
   translate(center.x,center.y);
@@ -29,22 +30,27 @@ void render(){
   popMatrix();
 }
 
+//sets the new x and y positions of the ship as it moves.
 void update(){
   center.copy().rotate(rotation);
   center.x = center.x+XSpeed;
   center.y = center.y+YSpeed; 
 }
 
+//changes the direction that the ship/triangle is facing.
 void setRotation(float newRotation){
   rotation = rotation+newRotation;
 }
 
+//defines the speed that the ship moves at.
 void setSpeed(float newYSpeed, float newXSpeed){
   YSpeed = newYSpeed;
   XSpeed = newXSpeed;
 
 }
 
+//turns the rotation amount into a value that other fuctions can use 
+//reative to the position that the triangle is facing.
 float getRotation(){
   return rotation-radians(90);
 }

@@ -94,10 +94,16 @@ void draw() {
   handleCollisions();
 }
 
+//distance is a function (not part of any class) which returns the distance between two 
+//PVectors.
 float distance(PVector pv1, PVector pv2){
   return PVector.dist(pv1,pv2);
 }
 
+//colliding takes an Asteroid and a Breaker, returns true if they are close enough to 
+//touch, and false otherwise. More precisely, it returns true if the circle 
+//circumscribing the Asteroid (a circle through all the vertices of the Asteroid) 
+//touches the Breaker. colliding is not a method of any class.
 boolean colliding(Asteroid a, Breaker b){
    if (distance(a.center, b.center)<= a.radius()){
      return true;
