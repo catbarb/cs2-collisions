@@ -15,8 +15,8 @@ Hero(){
    red = random(0, 255); //sets a random red color value
    blue = random(0, 255); //sets a random blue color value
    green = random(0, 255); //sets a random green color value
-   rotation = 0;
-   YSpeed = 0;
+   rotation = 0; //starts rotation at 0
+   YSpeed = 0; //starts speed at 0
   }
 
 //Draws the ship/triangle.
